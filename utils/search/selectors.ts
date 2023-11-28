@@ -1,7 +1,7 @@
 export enum HomePageComponent {
     homepageSearchInput = '[id="appSearchPlaceholderInput"]',
-    searchInput = '[data-qa="el:search search:"]',
+    searchInput = '[data-qa="el:searchInput"]',
     locationInput = '[data-qa="el:locationDropdown"]',
-    dayInput = '[name="day-select"]',
-    peopleInput = '[name="people-select"]',
+    dayInput = '[data-qa="el:dayDropdown"]',
+    peopleInput = '[data-qa="el:peopleDropdown"]',
 }
