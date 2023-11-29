@@ -2,9 +2,9 @@ import { test, expect } from '@playwright/test';
 
 test('search for restaurant vouchers in the town', async ({ page }) => {
   await page.goto('https://www.vouchercodes.co.uk/restaurant-vouchers.html/');
-  await page.getByRole('button', { name: 'OK' }).click();
+  await page.getByRole('button', { name: 'OK' }).click(); // To dismiss the pop up
 
-  // Click the get started link.
+  
   await page.getByPlaceholder('Town or postcode').click();
   await page.getByPlaceholder('Town or postcode').fill('Londo');
   await page.getByText('London', { exact: true }).click();
@@ -17,7 +17,7 @@ test('search for restaurant vouchers, none are available returned', async ({ pag
   await page.goto('https://www.vouchercodes.co.uk/restaurant-vouchers.html/');
   await page.getByRole('button', { name: 'OK' }).click();
 
-  // Click the get started link.
+ 
   await page.getByPlaceholder('Town or postcode').click();
   await page.getByPlaceholder('Town or postcode').fill('Lon');
   await page.getByText('UK', { exact: true }).first().click();
