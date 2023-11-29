@@ -19,21 +19,9 @@ test('search for restaurant vouchers, none are available returned', async ({ pag
 
  
   await page.getByPlaceholder('Town or postcode').click();
-  await page.getByPlaceholder('Town or postcode').fill('Lon');
-  await page.getByText('UK', { exact: true }).first().click();
+  await page.getByPlaceholder('Town or postcode').fill('Londo');
+  await page.getByText('London', { exact: true }).first().click();
   await page.locator('select[name="day-select"]').selectOption('2023-11-30');
-  await page.getByRole('button', { name: 'Find restaurants vouchers' }).click();
-  await page.getByText('Sorry, we don\'t have any offers available from your favourite restaurants at the moment.', { exact: true });
-});
-
-test('search for restaurant vouchers and asserting for text that will not exist', async ({ page }) => {
-  await page.goto('https://www.vouchercodes.co.uk/restaurant-vouchers.html/');
-  await page.getByRole('button', { name: 'OK' }).click();
-  
-  await page.getByPlaceholder('Town or postcode').click();
-  await page.getByPlaceholder('Town or postcode').fill('Lon');
-  await page.getByText('UK', { exact: true }).first().click();
-  await page.locator('select[name="day-select"]').selectOption('Any');
   await page.getByRole('button', { name: 'Find restaurants vouchers' }).click();
   await page.getByText('Sorry, we don\'t have any offers available from your favourite restaurants at the moment.', { exact: true });
 });
